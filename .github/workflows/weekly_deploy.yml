@@ -10,5 +10,5 @@ jobs:
     - name: curl
       uses: wei/curl@master
       with:
-        args: "-X POST -H 'Authorization: token ${{ secrets.PAGES_ACCESS_TOKEN }}' -H 'Accept: application/vnd.github.ant-man-preview+json' https://api.github.com/repos/insolitum/insolitum.github.io/pages/builds"
+        args: "-X POST -H 'Authorization: token ${{ secrets.PAGES_ACCESS_TOKEN }}' -H 'Accept: application/vnd.github.ant-man-preview+json' https://api.github.com/repos/Nanomixer98/insolitum.github.io/pages/builds"
         
