@@ -34,11 +34,11 @@ show_contact_card: true
 contact_title: Contacts
 contact_description: If you liked my profile or would like to know more about me, feel free to contact me!
 
-repository: Nanomixer98/insolitum.github.io
+repository: Nanomixer98/Nanomixer98.github.io
 github_pages:
   - sorting_algos
   - character_encoder
-  - insolitum.github.io
+  - Nanomixer98.github.io
 
 projects:
   sort_by: stars
