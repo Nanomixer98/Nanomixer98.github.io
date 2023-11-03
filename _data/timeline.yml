@@ -1,40 +1,67 @@
-- title: Exactpro Systems
-  title-url: https://exactpro.com/
-  date: Sep 2021 - Present
+- title: Stori
+  title-url: https://www.storicard.com/
+  date: Jun 2023 - Present
   subtitle: Software Engineer
   tags:
     - tag: Python
-    - tag: Git
-    - tag: Software Testing
-    - tag: Linux
-    - tag: Jira
-    - tag: SQL
+    - tag: AWS (Cognito, IAM, SQS, SNS, CDK)
+    - tag: VueJS
+    - tag: Bash
+    - tag: CD/CI
+    - tag: PostgreSQL
     - tag: Jenkins
-    - tag: Bitbucket
-  timeline-side: right
-
-- title: Silknet
-  title-url: https://silknet.com/
-  date: Jun 2020 - Sep 2020
-  subtitle: Troubleshooter
-  tags:
-    - tag: Networking
-    - tag: Communications
-    - tag: Zsmart
+    - tag: SOLID
+    - tag: Clean Arquitecture
   timeline-side: left
 
-- title: Silknet
-  title-url: https://silknet.com/
-  date: Nov 2019 - Apr 2020
-  subtitle: Troubleshooter
+- title: Stori
+  title-url: https://www.storicard.com/
+  date: Mar 2022 - Jun 2021
+  subtitle: Software Developer Jr.
   tags:
-    - tag: Networking
-    - tag: Communications
-    - tag: Zsmart
+    - tag: Python
+    - tag: AWS (Lambda, ECS, ECR, API Gateway)
+    - tag: VueJS
+    - tag: Jira
+    - tag: Redis
+    - tag: Jenkins
+  timeline-side: left
+
+- title: Harman de México
+  title-url: https://www.harmanbymexico.com/
+  date: May 2021 - Mar 2022
+  subtitle: Full-stack Developer
+  tags:
+    - tag: Analysis and project management
+    - tag: Javascript
+    - tag: Git
+    - tag: Jira
+    - tag: Docker
   timeline-side: right
 
-- title: Business And Technology University
-  title-url: https://btu.edu.ge/
-  date: 2019 - 2023
-  subtitle: Bachelor of Information Systems and Technologies
+- title: Harman de México
+  title-url: https://www.harmanbymexico.com/
+  date: Nov 2020 - May 2021
+  subtitle: Intern Developer
+  tags:
+    - tag: Symfony
+    - tag: PHP
+    - tag: MySQL
+    - tag: Linux
+  timeline-side: right
+
+- title: Instituto Tecnológico de Querétaro
+  title-url: https://queretaro.tecnm.mx/
+  date: Sep 2019 - Nov 2020
+  subtitle: Full-stack Developer
+  tags:
+    - tag: Javascript
+    - tag: Angular 8+
+    - tag: Node
+  timeline-side: left
+
+- title: Instituto Tecnológico de Querétaro
+  title-url: https://queretaro.tecnm.mx/
+  date: 2016 - 2021
+  subtitle: Bachelor of Computerstystems Engineer
   timeline-side: left
