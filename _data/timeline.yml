@@ -4,7 +4,7 @@
   subtitle: Software Engineer
   tags:
     - tag: Python
-    - tag: AWS (Cognito, IAM, SQS, SNS, CDK)
+    - tag: AWS (Cognito, IAM, SQS, SNS, CDK, DynamoDB)
     - tag: VueJS
     - tag: Bash
     - tag: CD/CI

@@ -6,8 +6,12 @@ username: Alexis Nava
 typing_text: Software Engineer
 
 email: alexis.nava.s@outlook.com
+telegram_username: null
 linkedin_username: alexis-nava
 github_username: Nanomixer98
+facebook_username: null
+instagram_username: null
+viber_number: null
 
 show_aboutme_card: false
 about_me_title: About Me
@@ -17,7 +21,7 @@ show_skills_card: true
 skills_title: Skills
 
 show_timeline_card: true
-timeline_title: Education & Experience
+timeline_title: Experience & Education
 cv_download_link: https://resume.io/r/L57OtJ63W
 
 show_projects_card: true
@@ -28,9 +32,9 @@ os_projects_title: Portfolio Projects
 
 show_contact_card: true
 contact_title: Contacts
-contact_description: Feel free to contact me wherever is comfortable for you
+contact_description: If you liked my profile or would like to know more about me, feel free to contact me!
 
-repository: insolitum/insolitum.github.io
+repository: Nanomixer98/insolitum.github.io
 github_pages:
   - sorting_algos
   - character_encoder
@@ -55,4 +59,5 @@ exclude:
     "gulpfile.js",
     "node_modules",
     "package.json",
+    "README_INFO.md",
   ]

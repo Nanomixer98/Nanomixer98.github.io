@@ -1,23 +1,56 @@
-- name: GitLab
-  weight: 5
-
 - name: Git
+  weight: 4
+
+- name: AWS Lambda
   weight: 5
 
-- name: Bitbucket
+- name: AWS API Gateway
+  weight: 3
+
+- name: AWS Cognito
+  weight: 2
+
+- name: AWS ECS
+  weight: 4
+
+- name: AWS ECR
+  weight: 4
+
+- name: AWS SQS
+  weight: 3
+
+- name: AWS SNS
+  weight: 4
+
+- name: AWS Cloudwatch
   weight: 5
 
-- name: SQL
+- name: AWS DynamoDB
+  weight: 5
+
+- name: AWS IAM
+  weight: 2
+
+- name: Docker
+  weight: 3
+
+- name: GitHub
   weight: 5
 
 - name: Jira
   weight: 4
 
-- name: Bash
-  weight: 4
-
 - name: Jenkins
   weight: 3
 
-- name: Docker
+- name: Figma
+  weight: 2
+
+- name: VSCode
+  weight: 5
+
+- name: draw.io
   weight: 3
+
+- name: Postman
+  weight: 4

@@ -18,7 +18,7 @@ $card-bg-color: linear-gradient(
   rgba(115, 115, 115, 0.15) 15%,
   rgba(43, 45, 47, 1) 80%
 );
-$primary-color: #ff073a;
+$primary-color: #A2C579;
 
 // General
 
@@ -454,15 +454,15 @@ a {
   }
 
   div[skill-type="language"] {
-    color: #e84a5f;
+    color: #D2DE32;
   }
 
   div[skill-type="framework"] {
-    color: #ff847c;
+    color: #FFFFDD;
   }
 
   div[skill-type="tool"] {
-    color: #fecea8;
+    color: #61A3BA;
   }
 
   div[skill-weight="1"] {

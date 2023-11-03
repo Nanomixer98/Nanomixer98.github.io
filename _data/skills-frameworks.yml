@@ -1,5 +1,11 @@
-- name: Selenium
+- name: VueJS
   weight: 5
 
-- name: Allure
+- name: Angular
+  weight: 3
+
+- name: Rasa
   weight: 4
+
+- name: Symfony
+  weight: 2
