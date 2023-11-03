@@ -244,6 +244,17 @@ a {
   top: 40%;
 }
 
+@media only screen and (max-width: 600px) {
+  .landing-title {
+    left: 0;
+    margin: 0.5rem;
+    padding: 0.5rem;
+    position: absolute;
+    right: 0;
+    top: 15%;
+  }
+}
+
 .landing-icons {
   display: flex;
   justify-content: center;
