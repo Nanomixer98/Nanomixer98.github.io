@@ -5,7 +5,7 @@
   tags:
     - tag: Python
     - tag: AWS (Cognito, IAM, SQS, SNS, CDK, DynamoDB, Step Functions)
-    - tag: VueJS (Compostion API, Pinia)
+    - tag: VueJS (Composition API, Pinia)
     - tag: JavaScript (AWS SDK)
     - tag: Bash
     - tag: CD/CI
@@ -31,7 +31,7 @@
 - title: Harman de México
   title-url: https://www.harmanbymexico.com/
   date: May 2021 - Mar 2022
-  subtitle: Full-stack Developer
+  subtitle: Full-stack Developer Jr.
   tags:
     - tag: Analysis and project management
     - tag: Javascript
