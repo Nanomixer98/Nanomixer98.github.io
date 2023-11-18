@@ -1,7 +1,7 @@
 - name: Python
   weight: 5
 
-- name: JavaScript
+- name: JavaScript/TypeScript
   weight: 5
 
 - name: Bash

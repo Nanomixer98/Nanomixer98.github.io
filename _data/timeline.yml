@@ -20,8 +20,8 @@
   subtitle: Software Developer Jr.
   tags:
     - tag: Python
-    - tag: AWS (Lambda, ECS, ECR, API Gateway, CloudWatch)
-    - tag: VueJS
+    - tag: AWS (Lambda, ECS, ECR, API Gateway, CloudWatch, CloudFormation)
+    - tag: VueJS (Options API, Vuex)
     - tag: Jira
     - tag: Redis
     - tag: Jenkins

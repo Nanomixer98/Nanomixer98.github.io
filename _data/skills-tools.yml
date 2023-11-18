@@ -53,4 +53,7 @@
   weight: 3
 
 - name: Postman
+  weight: 3
+
+- name: pre-commit
   weight: 4
