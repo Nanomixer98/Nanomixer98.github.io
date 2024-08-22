@@ -1,6 +1,12 @@
 - name: Git
   weight: 4
 
+- name: Sentry
+  weight: 5
+
+- name: TanStack Query
+  weight: 4
+
 - name: AWS Lambda
   weight: 5
 

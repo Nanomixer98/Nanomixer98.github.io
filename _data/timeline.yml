@@ -4,10 +4,13 @@
   subtitle: Software Engineer
   tags:
     - tag: Python
-    - tag: AWS (Cognito, IAM, SQS, SNS, CDK, DynamoDB, Step Functions)
     - tag: VueJS (Composition API, Pinia)
+    - tag: TanStack Query
+    - tag: Clean Architecture TypeScript
+    - tag: AWS (Cognito, IAM, SQS, SNS, CDK, DynamoDB, Step Functions)
+    - tag: bash
     - tag: JavaScript (AWS SDK)
-    - tag: Bash
+    - tag: Sentry
     - tag: CD/CI
     - tag: PostgreSQL
     - tag: SOLID
