@@ -18,7 +18,7 @@ export default function Contact() {
             whileInView={{ scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-emerald-600/20 to-amber-600/20 border border-white/10 mb-6"
+            className="inline-flex p-4 md:mr-4 rounded-2xl bg-gradient-to-br from-emerald-600/20 to-amber-600/20 border border-white/10 mb-6"
           >
             <HiOutlineMail className="text-3xl text-emerald-400" />
           </motion.div>

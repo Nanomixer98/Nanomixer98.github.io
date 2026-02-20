@@ -1,51 +1,7 @@
 import { motion } from 'framer-motion'
-import { useEffect, useState } from 'react'
 import { FaEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
-
-function useTypingEffect(text, speed = 100, pauseMs = 60000) {
-  const [displayed, setDisplayed] = useState('')
-  const [phase, setPhase] = useState('typing')
-
-  useEffect(() => {
-    let timeout
-    let i = 0
-    let currentPhase = 'typing'
-
-    function tick() {
-      if (currentPhase === 'typing') {
-        if (i < text.length) {
-          i++
-          setDisplayed(text.slice(0, i))
-          timeout = setTimeout(tick, speed)
-        } else {
-          currentPhase = 'paused'
-          setPhase('paused')
-          timeout = setTimeout(tick, pauseMs)
-        }
-      } else if (currentPhase === 'paused') {
-        currentPhase = 'deleting'
-        setPhase('deleting')
-        tick()
-      } else if (currentPhase === 'deleting') {
-        if (i > 0) {
-          i--
-          setDisplayed(text.slice(0, i))
-          timeout = setTimeout(tick, speed / 2)
-        } else {
-          currentPhase = 'typing'
-          setPhase('typing')
-          timeout = setTimeout(tick, speed * 3)
-        }
-      }
-    }
-
-    tick()
-    return () => clearTimeout(timeout)
-  }, [text, speed, pauseMs])
-
-  return { displayed, phase }
-}
+import { useTypingEffect } from '../hooks/useTypingEffect'
 
 const socialLinks = [
   {
@@ -66,7 +22,7 @@ const socialLinks = [
 ]
 
 export default function Hero() {
-  const { displayed, phase } = useTypingEffect(personalInfo.title, 120)
+  const { displayed, phase } = useTypingEffect(personalInfo.title, 120, 5000)
 
   return (
     <section

@@ -1,16 +1,16 @@
-import { useState, useRef, useEffect } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
-import { FaCode, FaCubes, FaTools, FaChevronDown } from 'react-icons/fa'
+import { AnimatePresence, motion } from 'framer-motion'
+import { useEffect, useRef, useState } from 'react'
+import { FaChevronDown, FaCode, FaCubes, FaTools } from 'react-icons/fa'
 import {
-  skillsLanguages,
   skillsFrameworks,
+  skillsLanguages,
   skillsTools,
 } from '../data/portfolioData'
 
 const categories = [
   { title: 'Languages', icon: FaCode, skills: skillsLanguages },
   { title: 'Frameworks', icon: FaCubes, skills: skillsFrameworks },
-  { title: 'Tools', icon: FaTools, skills: skillsTools },
+  { title: 'Skills & Tools', icon: FaTools, skills: skillsTools },
 ]
 
 const levelConfig = {
@@ -43,7 +43,7 @@ function SkillLevel({ weight }) {
 
 const COLLAPSED_HEIGHT = 240
 
-function SkillCard({ title, icon: Icon, skills, index }) {
+function SkillCard({ title, icon: Icon, skills, index, className = '' }) {
   const [expanded, setExpanded] = useState(false)
   const [needsCollapse, setNeedsCollapse] = useState(false)
   const contentRef = useRef(null)
@@ -60,7 +60,7 @@ function SkillCard({ title, icon: Icon, skills, index }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="glass glass-hover p-6 md:p-8"
+      className={`glass glass-hover p-6 md:p-8 ${className}`}
     >
       <div className="flex items-center gap-3 mb-6">
         <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-600/20 to-amber-600/20 border border-white/10">
@@ -134,7 +134,12 @@ export default function Skills() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {categories.map((cat, i) => (
-            <SkillCard key={cat.title} {...cat} index={i} />
+            <SkillCard
+              key={cat.title}
+              {...cat}
+              index={i}
+              className={i === categories.length - 1 ? 'md:col-span-2 lg:col-span-1' : ''}
+            />
           ))}
         </div>
 
