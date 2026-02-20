@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
 import { useTypingEffect } from '../hooks/useTypingEffect'
+import { trackEvent } from '../hooks/useAnalytics'
 
 const socialLinks = [
   {
@@ -75,6 +76,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
+              onClick={() => trackEvent('social-click', { platform: label })}
               className="glass glass-hover p-4 rounded-full text-xl text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
             >
               <Icon />

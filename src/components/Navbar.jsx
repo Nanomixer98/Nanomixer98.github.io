@@ -3,6 +3,7 @@ import { motion } from 'framer-motion'
 import { HiDownload, HiMenuAlt3, HiX } from 'react-icons/hi'
 import { FaSun, FaMoon } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
+import { trackEvent } from '../hooks/useAnalytics'
 
 const navLinks = [
   { label: 'Home', href: '#home' },
@@ -61,6 +62,7 @@ export default function Navbar({ dark, onToggle }) {
             href={personalInfo.cvLink}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('resume-click', { source: 'navbar' })}
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-600 text-white text-sm font-medium hover:opacity-90 transition-opacity"
           >
             <HiDownload className="text-base" />
@@ -106,6 +108,7 @@ export default function Navbar({ dark, onToggle }) {
             href={personalInfo.cvLink}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => trackEvent('resume-click', { source: 'navbar-mobile' })}
             className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-600 text-white text-sm font-medium w-fit"
           >
             <HiDownload />

@@ -1,4 +1,5 @@
 import useTheme from './hooks/useTheme'
+import { useSectionTracking } from './hooks/useAnalytics'
 import Background from './components/Background'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -10,6 +11,7 @@ import Footer from './components/Footer'
 
 export default function App() {
   const { dark, toggle } = useTheme()
+  useSectionTracking(['home', 'skills', 'timeline', 'projects', 'contact'])
 
   return (
     <div className={`text-gray-900 dark:text-white transition-colors duration-300`}>

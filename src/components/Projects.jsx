@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { FaStar, FaCodeBranch, FaExternalLinkAlt } from 'react-icons/fa'
 import useGithubRepos from '../hooks/useGithubRepos'
 import { githubConfig } from '../data/portfolioData'
+import { trackEvent } from '../hooks/useAnalytics'
 
 const langColors = {
   JavaScript: '#f1e05a',
@@ -34,6 +35,7 @@ function ProjectCard({ repo, index }) {
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() => trackEvent('project-click', { repo: repo.name })}
               className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
             >
               {repo.name}
@@ -45,6 +47,7 @@ function ProjectCard({ repo, index }) {
                 href={pagesUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackEvent('project-demo-click', { repo: repo.name })}
                 className="text-xs text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300 transition-colors"
                 aria-label="Live demo"
               >

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion'
 import { HiOutlineMail } from 'react-icons/hi'
 import { personalInfo } from '../data/portfolioData'
+import { trackEvent } from '../hooks/useAnalytics'
 
 export default function Contact() {
   return (
@@ -34,6 +35,7 @@ export default function Contact() {
 
           <motion.a
             href={`mailto:${personalInfo.email}`}
+            onClick={() => trackEvent('contact-click', { action: 'say-hello' })}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-amber-600 text-white font-semibold text-base hover:opacity-90 transition-opacity"
