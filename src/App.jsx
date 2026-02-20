@@ -1,3 +1,4 @@
+import useTheme from './hooks/useTheme'
 import Background from './components/Background'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
@@ -8,10 +9,12 @@ import Contact from './components/Contact'
 import Footer from './components/Footer'
 
 export default function App() {
+  const { dark, toggle } = useTheme()
+
   return (
-    <>
+    <div className={`text-gray-900 dark:text-white transition-colors duration-300`}>
       <Background />
-      <Navbar />
+      <Navbar dark={dark} onToggle={toggle} />
       <main>
         <Hero />
         <Skills />
@@ -20,6 +23,6 @@ export default function App() {
         <Contact />
       </main>
       <Footer />
-    </>
+    </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { HiDownload, HiMenuAlt3, HiX } from 'react-icons/hi'
+import { FaSun, FaMoon } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
 
 const navLinks = [
@@ -11,7 +12,7 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar() {
+export default function Navbar({ dark, onToggle }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -42,29 +43,47 @@ export default function Navbar() {
             <a
               key={link.href}
               href={link.href}
-              className="text-sm text-gray-300 hover:text-white transition-colors duration-200"
+              className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
             >
               {link.label}
             </a>
           ))}
+
+          <button
+            onClick={onToggle}
+            className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all cursor-pointer"
+            aria-label="Toggle theme"
+          >
+            {dark ? <FaSun className="text-base" /> : <FaMoon className="text-base" />}
+          </button>
+
           <a
             href={personalInfo.cvLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-600 text-sm font-medium hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-600 text-white text-sm font-medium hover:opacity-90 transition-opacity"
           >
             <HiDownload className="text-base" />
             Resume
           </a>
         </div>
 
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-2xl text-gray-300 hover:text-white"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <HiX /> : <HiMenuAlt3 />}
-        </button>
+        <div className="flex md:hidden items-center gap-3">
+          <button
+            onClick={onToggle}
+            className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
+            aria-label="Toggle theme"
+          >
+            {dark ? <FaSun /> : <FaMoon />}
+          </button>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-2xl text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <HiX /> : <HiMenuAlt3 />}
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
@@ -78,7 +97,7 @@ export default function Navbar() {
               key={link.href}
               href={link.href}
               onClick={() => setMobileOpen(false)}
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
             >
               {link.label}
             </a>
@@ -87,7 +106,7 @@ export default function Navbar() {
             href={personalInfo.cvLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-600 text-sm font-medium w-fit"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-600 text-white text-sm font-medium w-fit"
           >
             <HiDownload />
             Resume

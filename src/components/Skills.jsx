@@ -1,9 +1,9 @@
-import { AnimatePresence, motion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
-import { FaChevronDown, FaCode, FaCubes, FaTools } from 'react-icons/fa'
+import { useState, useRef, useEffect } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { FaCode, FaCubes, FaTools, FaChevronDown } from 'react-icons/fa'
 import {
-  skillsFrameworks,
   skillsLanguages,
+  skillsFrameworks,
   skillsTools,
 } from '../data/portfolioData'
 
@@ -31,7 +31,7 @@ function SkillLevel({ weight }) {
 
   return (
     <span
-      className={`group/level inline-flex items-center gap-0 hover:gap-1.5 text-[10px] font-medium uppercase tracking-wider text-gray-400 border ${border} rounded-full p-1 hover:px-2 hover:py-0.5 transition-all duration-300 cursor-default`}
+      className={`group/level inline-flex items-center gap-0 hover:gap-1.5 text-[10px] font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400 border ${border} rounded-full p-1 hover:px-2 hover:py-0.5 transition-all duration-300 cursor-default`}
     >
       <span className={`w-2 h-2 rounded-full shrink-0 ${color}`} />
       <span className="max-w-0 overflow-hidden opacity-0 group-hover/level:max-w-24 group-hover/level:opacity-100 transition-all duration-300 whitespace-nowrap">
@@ -63,8 +63,8 @@ function SkillCard({ title, icon: Icon, skills, index, className = '' }) {
       className={`glass glass-hover p-6 md:p-8 ${className}`}
     >
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-600/20 to-amber-600/20 border border-white/10">
-          <Icon className="text-xl text-emerald-400" />
+        <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-600/20 to-amber-600/20 border border-black/5 dark:border-white/10">
+          <Icon className="text-xl text-emerald-600 dark:text-emerald-400" />
         </div>
         <h3 className="text-lg font-semibold">{title}</h3>
       </div>
@@ -82,16 +82,19 @@ function SkillCard({ title, icon: Icon, skills, index, className = '' }) {
           {skills.map((skill) => (
             <div
               key={skill.name}
-              className="flex items-center gap-2.5 bg-white/5 border border-white/5 rounded-xl px-3.5 py-2 text-sm"
+              className="flex items-center gap-2.5 bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 rounded-xl px-3.5 py-2 text-sm"
             >
-              <span className="text-gray-200">{skill.name}</span>
+              <span className="text-gray-700 dark:text-gray-200">{skill.name}</span>
               <SkillLevel weight={skill.weight} />
             </div>
           ))}
         </div>
 
         {needsCollapse && !expanded && (
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#071208]/80 to-transparent pointer-events-none" />
+          <div
+            className="absolute bottom-0 left-0 right-0 h-20 pointer-events-none"
+            style={{ background: `linear-gradient(to top, var(--collapse-fade), transparent)` }}
+          />
         )}
       </div>
 
@@ -100,7 +103,7 @@ function SkillCard({ title, icon: Icon, skills, index, className = '' }) {
           <motion.button
             layout
             onClick={() => setExpanded((prev) => !prev)}
-            className="flex items-center gap-1.5 mx-auto mt-4 text-xs text-gray-400 hover:text-white transition-colors cursor-pointer"
+            className="flex items-center gap-1.5 mx-auto mt-4 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
           >
             <span>{expanded ? 'Show less' : 'Show more'}</span>
             <FaChevronDown
@@ -127,7 +130,7 @@ export default function Skills() {
           <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block">
             Skills
           </h2>
-          <p className="text-gray-400 mt-3 max-w-lg mx-auto">
+          <p className="text-gray-500 dark:text-gray-400 mt-3 max-w-lg mx-auto">
             Technologies and tools I work with
           </p>
         </motion.div>

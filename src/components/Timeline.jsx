@@ -14,7 +14,8 @@ function TimelineItem({ item, index }) {
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, delay: index * 0.1 }}
-        className="absolute left-5 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-emerald-500 to-amber-500 border-4 border-[#071208] z-10"
+        className="absolute left-5 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-emerald-500 to-amber-500 z-10"
+        style={{ borderWidth: 4, borderStyle: 'solid', borderColor: 'var(--dot-border)' }}
       />
 
       <div
@@ -38,23 +39,23 @@ function TimelineItem({ item, index }) {
               isLeft ? 'md:flex-row-reverse' : ''
             }`}
           >
-            <div className="p-2 rounded-lg bg-gradient-to-br from-emerald-600/20 to-amber-600/20 border border-white/10">
-              <Icon className="text-sm text-emerald-400" />
+            <div className="p-2 rounded-lg bg-gradient-to-br from-emerald-600/20 to-amber-600/20 border border-black/5 dark:border-white/10">
+              <Icon className="text-sm text-emerald-600 dark:text-emerald-400" />
             </div>
             <div>
               <a
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-white hover:text-emerald-400 transition-colors"
+                className="font-semibold hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
               >
                 {item.company}
               </a>
-              <p className="text-sm text-gray-400">{item.role}</p>
+              <p className="text-sm text-gray-500 dark:text-gray-400">{item.role}</p>
             </div>
           </div>
 
-          <p className="text-xs text-emerald-400/80 font-medium mb-3">
+          <p className="text-xs text-emerald-600/80 dark:text-emerald-400/80 font-medium mb-3">
             {item.date}
           </p>
 
@@ -67,7 +68,7 @@ function TimelineItem({ item, index }) {
               {item.tags.map((tag) => (
                 <span
                   key={tag}
-                  className="text-[11px] px-2 py-0.5 rounded-md bg-white/5 border border-white/5 text-gray-400"
+                  className="text-[11px] px-2 py-0.5 rounded-md bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-gray-500 dark:text-gray-400"
                 >
                   {tag}
                 </span>
@@ -94,7 +95,7 @@ export default function Timeline() {
           <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block">
             Experience & Education
           </h2>
-          <p className="text-gray-400 mt-3">My professional journey</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-3">My professional journey</p>
         </motion.div>
 
         <div className="relative">

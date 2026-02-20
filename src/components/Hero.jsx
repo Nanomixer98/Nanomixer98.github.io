@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { FaEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa'
+import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
 import { useTypingEffect } from '../hooks/useTypingEffect'
 
@@ -34,7 +34,7 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="text-emerald-400 text-lg md:text-xl mb-4 font-medium"
+          className="text-emerald-600 dark:text-emerald-400 text-lg md:text-xl mb-4 font-medium"
         >
           Hello, I&apos;m
         </motion.p>
@@ -52,11 +52,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.3 }}
-          className="text-2xl md:text-3xl text-gray-300 mb-10 h-10"
+          className="text-2xl md:text-3xl text-gray-600 dark:text-gray-300 mb-10 h-10"
         >
           <span>{displayed}</span>
           <span
-            className={`inline-block w-[3px] h-7 bg-amber-400 ml-1 align-middle ${
+            className={`inline-block w-[3px] h-7 bg-amber-500 dark:bg-amber-400 ml-1 align-middle ${
               phase === 'paused' ? 'animate-[typing-cursor_1s_infinite]' : ''
             }`}
           />
@@ -75,7 +75,7 @@ export default function Hero() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={label}
-              className="glass glass-hover p-4 rounded-full text-xl text-gray-300 hover:text-white"
+              className="glass glass-hover p-4 rounded-full text-xl text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white"
             >
               <Icon />
             </a>
@@ -90,13 +90,13 @@ export default function Hero() {
         >
           <a
             href="#skills"
-            className="flex flex-col items-center gap-2 text-gray-500 hover:text-gray-300 transition-colors"
+            className="flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >
             <span className="text-xs uppercase tracking-widest">Scroll</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}
-              className="w-5 h-8 rounded-full border-2 border-gray-500 flex items-start justify-center pt-1.5"
+              className="w-5 h-8 rounded-full border-2 border-gray-400 dark:border-gray-500 flex items-start justify-center pt-1.5"
             >
               <div className="w-1 h-1.5 bg-gray-400 rounded-full" />
             </motion.div>

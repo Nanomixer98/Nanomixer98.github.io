@@ -29,12 +29,12 @@ function ProjectCard({ repo, index }) {
     >
       <div className="flex-1">
         <div className="flex items-start justify-between mb-3">
-          <h3 className="font-semibold text-white text-base">
+          <h3 className="font-semibold text-base">
             <a
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:text-emerald-400 transition-colors"
+              className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
             >
               {repo.name}
             </a>
@@ -45,7 +45,7 @@ function ProjectCard({ repo, index }) {
                 href={pagesUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs text-amber-400 hover:text-amber-300 transition-colors"
+                className="text-xs text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300 transition-colors"
                 aria-label="Live demo"
               >
                 <FaExternalLinkAlt />
@@ -55,13 +55,13 @@ function ProjectCard({ repo, index }) {
         </div>
 
         {repo.description && (
-          <p className="text-sm text-gray-400 mb-4 line-clamp-2">
+          <p className="text-sm text-gray-500 dark:text-gray-400 mb-4 line-clamp-2">
             {repo.description}
           </p>
         )}
       </div>
 
-      <div className="flex items-center gap-4 text-xs text-gray-500 mt-auto pt-3 border-t border-white/5">
+      <div className="flex items-center gap-4 text-xs text-gray-400 dark:text-gray-500 mt-auto pt-3 border-t border-black/5 dark:border-white/5">
         {repo.language && (
           <div className="flex items-center gap-1.5">
             <span
@@ -106,7 +106,7 @@ export default function Projects() {
           <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block">
             Projects
           </h2>
-          <p className="text-gray-400 mt-3">
+          <p className="text-gray-500 dark:text-gray-400 mt-3">
             Open source projects from my GitHub
           </p>
         </motion.div>
@@ -118,7 +118,7 @@ export default function Projects() {
         )}
 
         {error && (
-          <div className="text-center py-10 text-gray-400">
+          <div className="text-center py-10 text-gray-500 dark:text-gray-400">
             <p>Could not load projects. Please try again later.</p>
           </div>
         )}
@@ -142,7 +142,7 @@ export default function Projects() {
               href={`https://github.com/${githubConfig.username}?tab=repositories`}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass glass-hover text-sm text-gray-300 hover:text-white font-medium"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass glass-hover text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium"
             >
               View all on GitHub
               <FaExternalLinkAlt className="text-xs" />
