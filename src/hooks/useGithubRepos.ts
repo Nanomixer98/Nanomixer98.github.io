@@ -1,10 +1,11 @@
 import { useState, useEffect } from 'react'
 import { githubConfig } from '../data/portfolioData'
+import type { GithubRepo } from '../types'
 
 export default function useGithubRepos() {
-  const [repos, setRepos] = useState([])
+  const [repos, setRepos] = useState<GithubRepo[]>([])
   const [loading, setLoading] = useState(true)
-  const [error, setError] = useState(null)
+  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -17,16 +18,16 @@ export default function useGithubRepos() {
         const data = await res.json()
 
         const filtered = data
-          .filter((repo) => {
+          .filter((repo: GithubRepo) => {
             if (githubConfig.exclude.archived && repo.archived) return false
             if (githubConfig.exclude.forks && repo.fork) return false
             if (githubConfig.exclude.projects.includes(repo.name)) return false
             return true
           })
-          .sort((a, b) => b.stargazers_count - a.stargazers_count)
+          .sort((a: GithubRepo, b: GithubRepo) => b.stargazers_count - a.stargazers_count)
 
         setRepos(filtered)
-      } catch (err) {
+      } catch (err: any) {
         setError(err.message)
       } finally {
         setLoading(false)

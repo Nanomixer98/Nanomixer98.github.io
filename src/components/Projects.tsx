@@ -3,8 +3,9 @@ import { FaStar, FaCodeBranch, FaExternalLinkAlt } from 'react-icons/fa'
 import useGithubRepos from '../hooks/useGithubRepos'
 import { githubConfig } from '../data/portfolioData'
 import { trackEvent } from '../hooks/useAnalytics'
+import type { GithubRepo } from '../types'
 
-const langColors = {
+const langColors: Record<string, string> = {
   JavaScript: '#f1e05a',
   TypeScript: '#3178c6',
   Python: '#3572A5',
@@ -16,7 +17,7 @@ const langColors = {
   Shell: '#89e051',
 }
 
-function ProjectCard({ repo, index }) {
+function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
   const hasPages = githubConfig.githubPages.includes(repo.name)
   const pagesUrl = `https://${githubConfig.username}.github.io/${repo.name}`
 

@@ -1,4 +1,6 @@
-export const personalInfo = {
+import type { PersonalInfo, TimelineItemData, Skill, GithubConfig } from '../types'
+
+export const personalInfo: PersonalInfo = {
   name: 'Alexis Nava',
   title: 'Software Engineer',
   email: 'alexis.nava.s@outlook.com',
@@ -10,7 +12,7 @@ export const personalInfo = {
     'If you liked my profile or would like to know more about me, feel free to contact me!',
 }
 
-export const timeline = [
+export const timeline: TimelineItemData[] = [
   {
     company: 'Stori',
     url: 'https://www.storicard.com/',
@@ -91,7 +93,7 @@ export const timeline = [
   },
 ]
 
-export const skillsLanguages = [
+export const skillsLanguages: Skill[] = [
   { name: 'TypeScript', weight: 5 },
   { name: 'JavaScript', weight: 5 },
   { name: 'Golang', weight: 4 },
@@ -100,7 +102,7 @@ export const skillsLanguages = [
   { name: 'Bash', weight: 2 },
 ]
 
-export const skillsFrameworks = [
+export const skillsFrameworks: Skill[] = [
   { name: 'Vue.js', weight: 5 },
   { name: 'React', weight: 4 },
   { name: 'TanStack Query', weight: 4 },
@@ -110,7 +112,7 @@ export const skillsFrameworks = [
   { name: 'Symfony', weight: 2 },
 ]
 
-export const skillsTools = [
+export const skillsTools: Skill[] = [
   { name: 'AI Tooling (Cursor)', weight: 5 },
   { name: 'Clean Architecture', weight: 5 },
   { name: 'AWS Lambda', weight: 4 },
@@ -140,7 +142,7 @@ export const skillsTools = [
   { name: 'Firebase', weight: 2 },
 ]
 
-export const githubConfig = {
+export const githubConfig: GithubConfig = {
   username: 'Nanomixer98',
   sortBy: 'stars',
   exclude: {

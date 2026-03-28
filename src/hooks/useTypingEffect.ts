@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 
-export function useTypingEffect(text, speed = 100, pauseMs = 60000) {
+export function useTypingEffect(text: string, speed = 100, pauseMs = 60000) {
   const [displayed, setDisplayed] = useState('')
   const [phase, setPhase] = useState('typing')
 
   useEffect(() => {
-    let timeout
+    let timeout: ReturnType<typeof setTimeout> | undefined
     let i = 0
     let currentPhase = 'typing'
 

@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion'
 import { FaBriefcase, FaGraduationCap } from 'react-icons/fa'
 import { timeline } from '../data/portfolioData'
+import type { TimelineItemData } from '../types'
 
-function TimelineItem({ item, index }) {
+function TimelineItem({ item, index }: { item: TimelineItemData; index: number }) {
   const isEducation = item.role.toLowerCase().includes('bachelor')
   const Icon = isEducation ? FaGraduationCap : FaBriefcase
   const isLeft = index % 2 === 0
@@ -14,7 +15,7 @@ function TimelineItem({ item, index }) {
         whileInView={{ scale: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.3, delay: index * 0.1 }}
-        className="absolute left-5 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-gradient-to-br from-emerald-500 to-amber-500 z-10"
+        className="absolute left-5 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-linear-to-br from-emerald-500 to-amber-500 z-10"
         style={{ borderWidth: 4, borderStyle: 'solid', borderColor: 'var(--dot-border)' }}
       />
 
@@ -39,7 +40,7 @@ function TimelineItem({ item, index }) {
               isLeft ? 'md:flex-row-reverse' : ''
             }`}
           >
-            <div className="p-2 rounded-lg bg-gradient-to-br from-emerald-600/20 to-amber-600/20 border border-black/5 dark:border-white/10">
+            <div className="p-2 rounded-lg bg-linear-to-br from-emerald-600/20 to-amber-600/20 border border-black/5 dark:border-white/10">
               <Icon className="text-sm text-emerald-600 dark:text-emerald-400" />
             </div>
             <div>
@@ -65,7 +66,7 @@ function TimelineItem({ item, index }) {
                 isLeft ? 'md:justify-end' : ''
               }`}
             >
-              {item.tags.map((tag) => (
+              {item.tags.map((tag: string) => (
                 <span
                   key={tag}
                   className="text-[11px] px-2 py-0.5 rounded-md bg-black/5 dark:bg-white/5 border border-black/5 dark:border-white/5 text-gray-500 dark:text-gray-400"
@@ -99,7 +100,7 @@ export default function Timeline() {
         </motion.div>
 
         <div className="relative">
-          <div className="absolute left-5 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-emerald-500/50 via-teal-500/30 to-transparent" />
+          <div className="absolute left-5 md:left-1/2 -translate-x-1/2 top-0 bottom-0 w-px bg-linear-to-b from-emerald-500/50 via-teal-500/30 to-transparent" />
 
           <div className="flex flex-col gap-8">
             {timeline.map((item, i) => (

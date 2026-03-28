@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
+    "build": "tsc -b && vite build",
     "preview": "vite preview",
     "deploy": "gh-pages -d dist"
   },
@@ -15,6 +15,8 @@
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.2.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.4",
     "autoprefixer": "^10.4.24",
     "framer-motion": "^12.34.2",
@@ -22,6 +24,7 @@
     "postcss": "^8.5.6",
     "react-icons": "^5.5.0",
     "tailwindcss": "^4.2.0",
+    "typescript": "^6.0.2",
     "vite": "^7.3.1"
   }
 }

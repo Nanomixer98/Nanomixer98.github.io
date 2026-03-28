@@ -13,7 +13,7 @@ const navLinks = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar({ dark, onToggle }) {
+export default function Navbar({ dark, onToggle }: { dark: boolean; onToggle: () => void }) {
   const [scrolled, setScrolled] = useState(false)
   const [mobileOpen, setMobileOpen] = useState(false)
 
@@ -63,7 +63,7 @@ export default function Navbar({ dark, onToggle }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('resume-click', { source: 'navbar' })}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-600 text-white text-sm font-medium hover:opacity-90 transition-opacity"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-linear-to-r from-emerald-600 to-amber-600 text-white text-sm font-medium hover:opacity-90 transition-opacity"
           >
             <HiDownload className="text-base" />
             Resume
@@ -109,7 +109,7 @@ export default function Navbar({ dark, onToggle }) {
             target="_blank"
             rel="noopener noreferrer"
             onClick={() => trackEvent('resume-click', { source: 'navbar-mobile' })}
-            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-gradient-to-r from-emerald-600 to-amber-600 text-white text-sm font-medium w-fit"
+            className="flex items-center gap-2 px-4 py-2 rounded-xl bg-linear-to-r from-emerald-600 to-amber-600 text-white text-sm font-medium w-fit"
           >
             <HiDownload />
             Resume

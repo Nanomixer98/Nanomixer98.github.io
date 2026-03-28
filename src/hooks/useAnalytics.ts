@@ -1,17 +1,23 @@
 import { useEffect, useRef } from 'react'
 
-function track(eventName, data) {
+declare global {
+  interface Window {
+    umami?: { track: (event: string, data?: any) => void };
+  }
+}
+
+function track(eventName: string, data?: any) {
   if (typeof window !== 'undefined' && window.umami) {
     window.umami.track(eventName, data)
   }
 }
 
-export function trackEvent(eventName, data) {
+export function trackEvent(eventName: string, data?: any) {
   track(eventName, data)
 }
 
-export function useSectionTracking(sectionIds) {
-  const tracked = useRef(new Set())
+export function useSectionTracking(sectionIds: string[]) {
+  const tracked = useRef<Set<string>>(new Set())
 
   useEffect(() => {
     if (typeof window === 'undefined' || !window.IntersectionObserver) return

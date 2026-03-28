@@ -6,26 +6,27 @@ import {
   skillsFrameworks,
   skillsTools,
 } from '../data/portfolioData'
+import type { SkillCategory } from '../types'
 
-const categories = [
+const categories: SkillCategory[] = [
   { title: 'Languages', icon: FaCode, skills: skillsLanguages },
   { title: 'Frameworks', icon: FaCubes, skills: skillsFrameworks },
   { title: 'Skills & Tools', icon: FaTools, skills: skillsTools },
 ]
 
-const levelConfig = {
+const levelConfig: Record<string, { label: string; color: string; border: string }> = {
   advanced: { label: 'Advanced', color: 'bg-emerald-400', border: 'border-emerald-400/30' },
   intermediate: { label: 'Intermediate', color: 'bg-amber-400', border: 'border-amber-400/30' },
   familiar: { label: 'Familiar', color: 'bg-rose-400', border: 'border-rose-400/30' },
 }
 
-function getLevel(weight) {
+function getLevel(weight: number) {
   if (weight >= 4) return 'advanced'
   if (weight === 3) return 'intermediate'
   return 'familiar'
 }
 
-function SkillLevel({ weight }) {
+function SkillLevel({ weight }: { weight: number }) {
   const level = getLevel(weight)
   const { label, color, border } = levelConfig[level]
 
@@ -43,10 +44,10 @@ function SkillLevel({ weight }) {
 
 const COLLAPSED_HEIGHT = 240
 
-function SkillCard({ title, icon: Icon, skills, index, className = '' }) {
+function SkillCard({ title, icon: Icon, skills, index, className = '' }: SkillCategory & { index: number; className?: string }) {
   const [expanded, setExpanded] = useState(false)
   const [needsCollapse, setNeedsCollapse] = useState(false)
-  const contentRef = useRef(null)
+  const contentRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     if (contentRef.current) {
@@ -63,7 +64,7 @@ function SkillCard({ title, icon: Icon, skills, index, className = '' }) {
       className={`glass glass-hover p-6 md:p-8 ${className}`}
     >
       <div className="flex items-center gap-3 mb-6">
-        <div className="p-3 rounded-xl bg-gradient-to-br from-emerald-600/20 to-amber-600/20 border border-black/5 dark:border-white/10">
+        <div className="p-3 rounded-xl bg-linear-to-br from-emerald-600/20 to-amber-600/20 border border-black/5 dark:border-white/10">
           <Icon className="text-xl text-emerald-600 dark:text-emerald-400" />
         </div>
         <h3 className="text-lg font-semibold">{title}</h3>
