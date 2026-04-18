@@ -2,6 +2,7 @@ import { motion } from 'framer-motion'
 import { FaBriefcase, FaGraduationCap } from 'react-icons/fa'
 import { timeline } from '../data/portfolioData'
 import type { TimelineItemData } from '../types'
+import { useLanguage } from '../hooks/useLanguage'
 
 function TimelineItem({ item, index }: { item: TimelineItemData; index: number }) {
   const isEducation = item.role.toLowerCase().includes('bachelor')
@@ -83,6 +84,7 @@ function TimelineItem({ item, index }: { item: TimelineItemData; index: number }
 }
 
 export default function Timeline() {
+  const { t } = useLanguage()
   return (
     <section id="timeline" className="section-padding">
       <div className="max-w-5xl mx-auto">
@@ -94,9 +96,9 @@ export default function Timeline() {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block">
-            Experience & Education
+            {t('timeline.title')}
           </h2>
-          <p className="text-gray-500 dark:text-gray-400 mt-3">My professional journey</p>
+          <p className="text-gray-500 dark:text-gray-400 mt-3">{t('timeline.subtitle')}</p>
         </motion.div>
 
         <div className="relative">

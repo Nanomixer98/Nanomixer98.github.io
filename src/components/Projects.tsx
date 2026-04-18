@@ -4,6 +4,7 @@ import useGithubRepos from '../hooks/useGithubRepos'
 import { githubConfig } from '../data/portfolioData'
 import { trackEvent } from '../hooks/useAnalytics'
 import type { GithubRepo } from '../types'
+import { useLanguage } from '../hooks/useLanguage'
 
 const langColors: Record<string, string> = {
   JavaScript: '#f1e05a',
@@ -96,6 +97,7 @@ function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
 
 export default function Projects() {
   const { repos, loading, error } = useGithubRepos()
+  const { t } = useLanguage()
 
   return (
     <section id="projects" className="section-padding">
@@ -108,10 +110,10 @@ export default function Projects() {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block">
-            Projects
+            {t('projects.title')}
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mt-3">
-            Open source projects from my GitHub
+            {t('projects.subtitle')}
           </p>
         </motion.div>
 
@@ -123,7 +125,7 @@ export default function Projects() {
 
         {error && (
           <div className="text-center py-10 text-gray-500 dark:text-gray-400">
-            <p>Could not load projects. Please try again later.</p>
+            <p>{t('projects.error')}</p>
           </div>
         )}
 
@@ -148,7 +150,7 @@ export default function Projects() {
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass glass-hover text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium"
             >
-              View all on GitHub
+              {t('projects.viewAll')}
               <FaExternalLinkAlt className="text-xs" />
             </a>
           </motion.div>

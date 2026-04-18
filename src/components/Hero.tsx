@@ -3,6 +3,7 @@ import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
 import { useTypingEffect } from '../hooks/useTypingEffect'
 import { trackEvent } from '../hooks/useAnalytics'
+import { useLanguage } from '../hooks/useLanguage'
 
 const socialLinks = [
   {
@@ -23,6 +24,7 @@ const socialLinks = [
 ]
 
 export default function Hero() {
+  const { t } = useLanguage()
   const { displayed, phase } = useTypingEffect(personalInfo.title, 120, 5000)
 
   return (
@@ -37,7 +39,7 @@ export default function Hero() {
           transition={{ duration: 0.6 }}
           className="text-emerald-600 dark:text-emerald-400 text-lg md:text-xl mb-4 font-medium"
         >
-          Hello, I&apos;m
+          {t('hero.greeting')}
         </motion.p>
 
         <motion.h1
@@ -94,7 +96,7 @@ export default function Hero() {
             href="#skills"
             className="flex flex-col items-center gap-2 text-gray-400 dark:text-gray-500 hover:text-gray-600 dark:hover:text-gray-300 transition-colors"
           >
-            <span className="text-xs uppercase tracking-widest">Scroll</span>
+            <span className="text-xs uppercase tracking-widest">{t('hero.scroll')}</span>
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ repeat: Infinity, duration: 1.5 }}

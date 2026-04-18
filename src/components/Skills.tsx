@@ -7,18 +7,9 @@ import {
   skillsTools,
 } from '../data/portfolioData'
 import type { SkillCategory } from '../types'
+import { useLanguage } from '../hooks/useLanguage'
 
-const categories: SkillCategory[] = [
-  { title: 'Languages', icon: FaCode, skills: skillsLanguages },
-  { title: 'Frameworks', icon: FaCubes, skills: skillsFrameworks },
-  { title: 'Skills & Tools', icon: FaTools, skills: skillsTools },
-]
-
-const levelConfig: Record<string, { label: string; color: string; border: string }> = {
-  advanced: { label: 'Advanced', color: 'bg-emerald-400', border: 'border-emerald-400/30' },
-  intermediate: { label: 'Intermediate', color: 'bg-amber-400', border: 'border-amber-400/30' },
-  familiar: { label: 'Familiar', color: 'bg-rose-400', border: 'border-rose-400/30' },
-}
+const COLLAPSED_HEIGHT = 240
 
 function getLevel(weight: number) {
   if (weight >= 4) return 'advanced'
@@ -27,8 +18,16 @@ function getLevel(weight: number) {
 }
 
 function SkillLevel({ weight }: { weight: number }) {
+  const { t } = useLanguage()
   const level = getLevel(weight)
-  const { label, color, border } = levelConfig[level]
+
+  const levelConfig: Record<string, { labelKey: string; color: string; border: string }> = {
+    advanced: { labelKey: 'skills.advanced', color: 'bg-emerald-400', border: 'border-emerald-400/30' },
+    intermediate: { labelKey: 'skills.intermediate', color: 'bg-amber-400', border: 'border-amber-400/30' },
+    familiar: { labelKey: 'skills.familiar', color: 'bg-rose-400', border: 'border-rose-400/30' },
+  }
+
+  const { labelKey, color, border } = levelConfig[level]
 
   return (
     <span
@@ -36,15 +35,14 @@ function SkillLevel({ weight }: { weight: number }) {
     >
       <span className={`w-2 h-2 rounded-full shrink-0 ${color}`} />
       <span className="max-w-0 overflow-hidden opacity-0 group-hover/level:max-w-24 group-hover/level:opacity-100 transition-all duration-300 whitespace-nowrap">
-        {label}
+        {t(labelKey)}
       </span>
     </span>
   )
 }
 
-const COLLAPSED_HEIGHT = 240
-
 function SkillCard({ title, icon: Icon, skills, index, className = '' }: SkillCategory & { index: number; className?: string }) {
+  const { t } = useLanguage()
   const [expanded, setExpanded] = useState(false)
   const [needsCollapse, setNeedsCollapse] = useState(false)
   const contentRef = useRef<HTMLDivElement>(null)
@@ -106,7 +104,7 @@ function SkillCard({ title, icon: Icon, skills, index, className = '' }: SkillCa
             onClick={() => setExpanded((prev) => !prev)}
             className="flex items-center gap-1.5 mx-auto mt-4 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
           >
-            <span>{expanded ? 'Show less' : 'Show more'}</span>
+            <span>{expanded ? t('skills.showLess') : t('skills.showMore')}</span>
             <FaChevronDown
               className={`transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
             />
@@ -118,6 +116,20 @@ function SkillCard({ title, icon: Icon, skills, index, className = '' }: SkillCa
 }
 
 export default function Skills() {
+  const { t } = useLanguage()
+
+  const categories: SkillCategory[] = [
+    { title: t('skills.languages'), icon: FaCode, skills: skillsLanguages },
+    { title: t('skills.frameworks'), icon: FaCubes, skills: skillsFrameworks },
+    { title: t('skills.tools'), icon: FaTools, skills: skillsTools },
+  ]
+
+  const legendItems = [
+    { labelKey: 'skills.advanced', color: 'bg-emerald-400' },
+    { labelKey: 'skills.intermediate', color: 'bg-amber-400' },
+    { labelKey: 'skills.familiar', color: 'bg-rose-400' },
+  ]
+
   return (
     <section id="skills" className="section-padding">
       <div className="max-w-6xl mx-auto">
@@ -129,10 +141,10 @@ export default function Skills() {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block">
-            Skills
+            {t('skills.title')}
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mt-3 max-w-lg mx-auto">
-            Technologies and tools I work with
+            {t('skills.subtitle')}
           </p>
         </motion.div>
 
@@ -148,10 +160,10 @@ export default function Skills() {
         </div>
 
         <div className="flex items-center justify-center gap-6 mt-8 text-xs text-gray-500">
-          {Object.values(levelConfig).map(({ label, color }) => (
-            <div key={label} className="flex items-center gap-1.5">
+          {legendItems.map(({ labelKey, color }) => (
+            <div key={labelKey} className="flex items-center gap-1.5">
               <span className={`w-2 h-2 rounded-full ${color}`} />
-              {label}
+              {t(labelKey)}
             </div>
           ))}
         </div>
