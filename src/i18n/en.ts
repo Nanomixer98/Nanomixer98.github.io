@@ -15,7 +15,7 @@ export const en: Record<string, string> = {
   'skills.title': 'Skills',
   'skills.subtitle': 'Technologies and tools I work with',
   'skills.languages': 'Languages',
-  'skills.frameworks': 'Frameworks',
+  'skills.frameworks': 'Frameworks & Libraries',
   'skills.tools': 'Skills & Tools',
   'skills.advanced': 'Advanced',
   'skills.intermediate': 'Intermediate',
@@ -38,4 +38,4 @@ export const en: Record<string, string> = {
   'contact.subtitle':
     'If you liked my profile or would like to know more about me, feel free to contact me!',
   'contact.cta': 'Say Hello',
-}
+};

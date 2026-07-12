@@ -1,60 +1,33 @@
-import { AnimatePresence, motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
-import { FaChevronDown, FaCode, FaCubes, FaTools } from "react-icons/fa";
+import { AnimatePresence, motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
+import { FaChevronDown, FaCode, FaCubes, FaTools } from 'react-icons/fa';
 import {
   skillsFrameworks,
   skillsLanguages,
   skillsTools,
-} from "../data/portfolioData";
-import { useLanguage } from "../hooks/useLanguage";
-import type { SkillCategory } from "../types";
+} from '../data/portfolioData';
+import { useLanguage } from '../hooks/useLanguage';
+import type { SkillCategory } from '../types';
 
 const COLLAPSED_HEIGHT = 240;
 
 function getLevel(weight: number) {
-  if (weight >= 4) return "advanced";
-  if (weight === 3) return "intermediate";
-  return "familiar";
+  if (weight >= 4) return 'advanced';
+  if (weight === 3) return 'intermediate';
+  return 'familiar';
 }
 
 function SkillLevel({ weight }: { weight: number }) {
-  const { t } = useLanguage();
   const level = getLevel(weight);
 
-  const levelConfig: Record<
-    string,
-    { labelKey: string; color: string; border: string }
-  > = {
-    advanced: {
-      labelKey: "skills.advanced",
-      color: "bg-emerald-400",
-      border: "border-emerald-400/30",
-    },
-    intermediate: {
-      labelKey: "skills.intermediate",
-      color: "bg-amber-400",
-      border: "border-amber-400/30",
-    },
-    familiar: {
-      labelKey: "skills.familiar",
-      color: "bg-rose-400",
-      border: "border-rose-400/30",
-    },
+  const levelConfig: Record<string, string> = {
+    advanced: 'bg-emerald-400',
+    intermediate: 'bg-amber-400',
+    familiar: 'bg-rose-400',
   };
 
-  const { labelKey, color, border } = levelConfig[level];
-
-  return (
-    <span
-      className={`group/level inline-flex items-center gap-0 hover:gap-1.5 text-[10px] font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400 border ${border} rounded-full p-1 hover:px-2 hover:py-0.5 transition-all duration-300 cursor-default`}
-      data-cuelume-hover="whisper"
-    >
-      <span className={`w-2 h-2 rounded-full shrink-0 ${color}`} />
-      <span className="max-w-0 overflow-hidden opacity-0 group-hover/level:max-w-24 group-hover/level:opacity-100 transition-all duration-300 whitespace-nowrap">
-        {t(labelKey)}
-      </span>
-    </span>
-  );
+  const color = levelConfig[level];
+  return <span className={`w-2 h-2 rounded-full shrink-0 ${color}`} />;
 }
 
 function SkillCard({
@@ -62,7 +35,7 @@ function SkillCard({
   icon: Icon,
   skills,
   index,
-  className = "",
+  className = '',
 }: SkillCategory & { index: number; className?: string }) {
   const { t } = useLanguage();
   const [expanded, setExpanded] = useState(false);
@@ -79,7 +52,7 @@ function SkillCard({
     <motion.div
       initial={{ opacity: 0, y: 40 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      viewport={{ once: true, margin: '-50px' }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
       className={`glass glass-hover p-6 md:p-8 ${className}`}
     >
@@ -97,7 +70,7 @@ function SkillCard({
           style={{
             maxHeight:
               !needsCollapse || expanded
-                ? (contentRef.current?.scrollHeight ?? "none")
+                ? (contentRef.current?.scrollHeight ?? 'none')
                 : `${COLLAPSED_HEIGHT}px`,
           }}
         >
@@ -132,10 +105,10 @@ function SkillCard({
             className="flex items-center gap-1.5 mx-auto mt-4 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
           >
             <span data-cuelume-press="bloom">
-              {expanded ? t("skills.showLess") : t("skills.showMore")}
+              {expanded ? t('skills.showLess') : t('skills.showMore')}
             </span>
             <FaChevronDown
-              className={`transition-transform duration-300 ${expanded ? "rotate-180" : ""}`}
+              className={`transition-transform duration-300 ${expanded ? 'rotate-180' : ''}`}
             />
           </motion.button>
         )}
@@ -148,15 +121,15 @@ export default function Skills() {
   const { t } = useLanguage();
 
   const categories: SkillCategory[] = [
-    { title: t("skills.languages"), icon: FaCode, skills: skillsLanguages },
-    { title: t("skills.frameworks"), icon: FaCubes, skills: skillsFrameworks },
-    { title: t("skills.tools"), icon: FaTools, skills: skillsTools },
+    { title: t('skills.languages'), icon: FaCode, skills: skillsLanguages },
+    { title: t('skills.frameworks'), icon: FaCubes, skills: skillsFrameworks },
+    { title: t('skills.tools'), icon: FaTools, skills: skillsTools },
   ];
 
   const legendItems = [
-    { labelKey: "skills.advanced", color: "bg-emerald-400" },
-    { labelKey: "skills.intermediate", color: "bg-amber-400" },
-    { labelKey: "skills.familiar", color: "bg-rose-400" },
+    { labelKey: 'skills.advanced', color: 'bg-emerald-400' },
+    { labelKey: 'skills.intermediate', color: 'bg-amber-400' },
+    { labelKey: 'skills.familiar', color: 'bg-rose-400' },
   ];
 
   return (
@@ -170,10 +143,10 @@ export default function Skills() {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block">
-            {t("skills.title")}
+            {t('skills.title')}
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mt-3 max-w-lg mx-auto">
-            {t("skills.subtitle")}
+            {t('skills.subtitle')}
           </p>
         </motion.div>
 
@@ -193,7 +166,7 @@ export default function Skills() {
               {...cat}
               index={i}
               className={
-                i === categories.length - 1 ? "md:col-span-2 lg:col-span-1" : ""
+                i === categories.length - 1 ? 'md:col-span-2 lg:col-span-1' : ''
               }
             />
           ))}
