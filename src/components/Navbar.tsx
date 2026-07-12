@@ -1,7 +1,7 @@
-import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import { FaMoon, FaSun } from 'react-icons/fa'
 import { HiDownload, HiMenuAlt3, HiX } from 'react-icons/hi'
-import { FaSun, FaMoon } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
 import { trackEvent } from '../hooks/useAnalytics'
 import { useLanguage } from '../hooks/useLanguage'
@@ -33,6 +33,7 @@ export default function Navbar({ dark, onToggle }: { dark: boolean; onToggle: ()
     <div className="flex items-center rounded-lg border border-black/10 dark:border-white/10 overflow-hidden" role="tablist" aria-label="Language">
       {(['en', 'es'] as const).map((l) => (
         <button
+          data-cuelume-toggle
           key={l}
           role="tab"
           aria-selected={locale === l}
@@ -71,6 +72,7 @@ export default function Navbar({ dark, onToggle }: { dark: boolean; onToggle: ()
               key={link.href}
               href={link.href}
               className="text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors duration-200"
+              data-cuelume-hover="tick"
             >
               {t(link.key)}
             </a>
@@ -82,11 +84,13 @@ export default function Navbar({ dark, onToggle }: { dark: boolean; onToggle: ()
             onClick={onToggle}
             className="p-2 rounded-lg text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-black/5 dark:hover:bg-white/10 transition-all cursor-pointer"
             aria-label="Toggle theme"
+            data-cuelume-toggle
           >
             {dark ? <FaSun className="text-base" /> : <FaMoon className="text-base" />}
           </button>
 
           <a
+            data-cuelume-press data-cuelume-release
             href={personalInfo.cvLink}
             target="_blank"
             rel="noopener noreferrer"

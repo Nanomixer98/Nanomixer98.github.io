@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion'
-import { FaGithub, FaLinkedinIn, FaEnvelope } from 'react-icons/fa'
+import { FaEnvelope, FaGithub, FaLinkedinIn } from 'react-icons/fa'
 import { personalInfo } from '../data/portfolioData'
-import { useTypingEffect } from '../hooks/useTypingEffect'
 import { trackEvent } from '../hooks/useAnalytics'
 import { useLanguage } from '../hooks/useLanguage'
+import { useTypingEffect } from '../hooks/useTypingEffect'
 
 const socialLinks = [
   {
@@ -73,6 +73,7 @@ export default function Hero() {
         >
           {socialLinks.map(({ icon: Icon, href, label }) => (
             <a
+              data-cuelume-press data-cuelume-release
               key={label}
               href={href}
               target="_blank"

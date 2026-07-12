@@ -1,32 +1,32 @@
-import { motion } from 'framer-motion'
-import { FaStar, FaCodeBranch, FaExternalLinkAlt } from 'react-icons/fa'
-import useGithubRepos from '../hooks/useGithubRepos'
-import { githubConfig } from '../data/portfolioData'
-import { trackEvent } from '../hooks/useAnalytics'
-import type { GithubRepo } from '../types'
-import { useLanguage } from '../hooks/useLanguage'
+import { motion } from "framer-motion";
+import { FaCodeBranch, FaExternalLinkAlt, FaStar } from "react-icons/fa";
+import { githubConfig } from "../data/portfolioData";
+import { trackEvent } from "../hooks/useAnalytics";
+import useGithubRepos from "../hooks/useGithubRepos";
+import { useLanguage } from "../hooks/useLanguage";
+import type { GithubRepo } from "../types";
 
 const langColors: Record<string, string> = {
-  JavaScript: '#f1e05a',
-  TypeScript: '#3178c6',
-  Python: '#3572A5',
-  HTML: '#e34c26',
-  CSS: '#563d7c',
-  Vue: '#41b883',
-  PHP: '#4F5D95',
-  Java: '#b07219',
-  Shell: '#89e051',
-}
+  JavaScript: "#f1e05a",
+  TypeScript: "#3178c6",
+  Python: "#3572A5",
+  HTML: "#e34c26",
+  CSS: "#563d7c",
+  Vue: "#41b883",
+  PHP: "#4F5D95",
+  Java: "#b07219",
+  Shell: "#89e051",
+};
 
 function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
-  const hasPages = githubConfig.githubPages.includes(repo.name)
-  const pagesUrl = `https://${githubConfig.username}.github.io/${repo.name}`
+  const hasPages = githubConfig.githubPages.includes(repo.name);
+  const pagesUrl = `https://${githubConfig.username}.github.io/${repo.name}`;
 
   return (
     <motion.div
       initial={{ opacity: 0, y: 30 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: '-30px' }}
+      viewport={{ once: true, margin: "-30px" }}
       transition={{ duration: 0.4, delay: index * 0.08 }}
       className="glass glass-hover p-5 md:p-6 flex flex-col h-full"
     >
@@ -37,7 +37,7 @@ function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
               href={repo.html_url}
               target="_blank"
               rel="noopener noreferrer"
-              onClick={() => trackEvent('project-click', { repo: repo.name })}
+              onClick={() => trackEvent("project-click", { repo: repo.name })}
               className="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors"
             >
               {repo.name}
@@ -49,7 +49,9 @@ function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
                 href={pagesUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => trackEvent('project-demo-click', { repo: repo.name })}
+                onClick={() =>
+                  trackEvent("project-demo-click", { repo: repo.name })
+                }
                 className="text-xs text-amber-600 dark:text-amber-400 hover:text-amber-500 dark:hover:text-amber-300 transition-colors"
                 aria-label="Live demo"
               >
@@ -72,7 +74,7 @@ function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
             <span
               className="w-2.5 h-2.5 rounded-full"
               style={{
-                backgroundColor: langColors[repo.language] || '#8b8b8b',
+                backgroundColor: langColors[repo.language] || "#8b8b8b",
               }}
             />
             <span>{repo.language}</span>
@@ -92,12 +94,12 @@ function ProjectCard({ repo, index }: { repo: GithubRepo; index: number }) {
         )}
       </div>
     </motion.div>
-  )
+  );
 }
 
 export default function Projects() {
-  const { repos, loading, error } = useGithubRepos()
-  const { t } = useLanguage()
+  const { repos, loading, error } = useGithubRepos();
+  const { t } = useLanguage();
 
   return (
     <section id="projects" className="section-padding">
@@ -110,10 +112,10 @@ export default function Projects() {
           className="text-center mb-14"
         >
           <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block">
-            {t('projects.title')}
+            {t("projects.title")}
           </h2>
           <p className="text-gray-500 dark:text-gray-400 mt-3">
-            {t('projects.subtitle')}
+            {t("projects.subtitle")}
           </p>
         </motion.div>
 
@@ -125,7 +127,7 @@ export default function Projects() {
 
         {error && (
           <div className="text-center py-10 text-gray-500 dark:text-gray-400">
-            <p>{t('projects.error')}</p>
+            <p>{t("projects.error")}</p>
           </div>
         )}
 
@@ -149,13 +151,15 @@ export default function Projects() {
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl glass glass-hover text-sm text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white font-medium"
+              data-cuelume-press
+              data-cuelume-release
             >
-              {t('projects.viewAll')}
+              {t("projects.viewAll")}
               <FaExternalLinkAlt className="text-xs" />
             </a>
           </motion.div>
         )}
       </div>
     </section>
-  )
+  );
 }

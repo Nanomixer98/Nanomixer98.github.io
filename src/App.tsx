@@ -1,14 +1,17 @@
-import useTheme from './hooks/useTheme'
-import { useSectionTracking } from './hooks/useAnalytics'
-import { LanguageProvider } from './context/LanguageContext'
+import { bind } from "cuelume"
 import Background from './components/Background'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Skills from './components/Skills'
-import Timeline from './components/Timeline'
-import Projects from './components/Projects'
 import Contact from './components/Contact'
 import Footer from './components/Footer'
+import Hero from './components/Hero'
+import Navbar from './components/Navbar'
+import Projects from './components/Projects'
+import Skills from './components/Skills'
+import Timeline from './components/Timeline'
+import { LanguageProvider } from './context/LanguageContext'
+import { useSectionTracking } from './hooks/useAnalytics'
+import useTheme from './hooks/useTheme'
+
+bind()
 
 export default function App() {
   const { dark, toggle } = useTheme()

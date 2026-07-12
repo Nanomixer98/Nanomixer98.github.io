@@ -1,11 +1,11 @@
-import { motion } from 'framer-motion'
-import { HiOutlineMail } from 'react-icons/hi'
-import { personalInfo } from '../data/portfolioData'
-import { trackEvent } from '../hooks/useAnalytics'
-import { useLanguage } from '../hooks/useLanguage'
+import { motion } from "framer-motion";
+import { HiOutlineMail } from "react-icons/hi";
+import { personalInfo } from "../data/portfolioData";
+import { trackEvent } from "../hooks/useAnalytics";
+import { useLanguage } from "../hooks/useLanguage";
 
 export default function Contact() {
-  const { t } = useLanguage()
+  const { t } = useLanguage();
 
   return (
     <section id="contact" className="section-padding">
@@ -28,27 +28,31 @@ export default function Contact() {
           </motion.div>
 
           <h2 className="text-3xl md:text-4xl font-bold gradient-text inline-block mb-4">
-            {t('contact.title')}
+            {t("contact.title")}
           </h2>
 
           <p className="text-gray-500 dark:text-gray-400 max-w-md mx-auto mb-8 leading-relaxed">
-            {t('contact.subtitle')}
+            {t("contact.subtitle")}
           </p>
 
           <motion.a
             href={`mailto:${personalInfo.email}`}
-            onClick={() => trackEvent('contact-click', { action: 'say-hello' })}
+            onClick={() => trackEvent("contact-click", { action: "say-hello" })}
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             className="inline-flex items-center gap-3 px-8 py-4 rounded-2xl bg-gradient-to-r from-emerald-600 to-amber-600 text-white font-semibold text-base hover:opacity-90 transition-opacity"
+            data-cuelume-press
+            data-cuelume-release
           >
             <HiOutlineMail className="text-xl" />
-            {t('contact.cta')}
+            {t("contact.cta")}
           </motion.a>
 
-          <p className="text-gray-400 dark:text-gray-500 text-sm mt-5">{personalInfo.email}</p>
+          <p className="text-gray-400 dark:text-gray-500 text-sm mt-5">
+            {personalInfo.email}
+          </p>
         </motion.div>
       </div>
     </section>
-  )
+  );
 }
