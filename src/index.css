@@ -1,9 +1,10 @@
 @import "tailwindcss";
+@import "@fontsource-variable/inter";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
 @theme {
-  --font-sans: "Inter", system-ui, sans-serif;
+  --font-sans: "Inter Variable", "Inter", system-ui, sans-serif;
   --animate-float-slow: float 20s ease-in-out infinite;
   --animate-float-slower: float 25s ease-in-out infinite reverse;
   --animate-float-slowest: float 30s ease-in-out infinite;
