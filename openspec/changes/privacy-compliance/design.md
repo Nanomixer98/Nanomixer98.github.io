@@ -20,8 +20,8 @@ Constraints: gh-pages static hosting (no headers control beyond static files, no
 
 ## Decisions
 
-### 1. Static `/privacy` route + footer link + `?lang=` reuse
-Why: matches existing i18n pattern, zero backend, stable URL both regimes require. Alternatives: external doc (Google Doc/Notion) — rejected (third-party tracker, version instability, offline fail). Hash-anchor section — rejected (not a stable standalone URL for regulators).
+### 1. `/privacy` route via react-router + footer link + `?lang=` reuse
+Why: matches existing i18n pattern, zero backend, stable URL both regimes require. `BrowserRouter` with `/` and `/privacy` routes (plus `*` redirect home), `ScrollToTop` on navigation, `Link` carrying the `?lang=` search string so locale survives route changes without reload. Alternatives: hand-rolled pathname switch — rejected (owner preference for clearer code; router handles history, fallback, and redirects). External doc (Google Doc/Notion) — rejected (third-party tracker, version instability, offline fail). Hash-anchor section — rejected (not a stable standalone URL for regulators).
 
 ### 2. Fontsource Variant A (`@fontsource-variable/inter` import in CSS) over manual woff2 / Bunny Fonts
 Why: npm versioned, Vite bundles automatically, single variable file covers weights 300-800 used today, no CSS hand-writing, no extra CDN trust. Manual `public/fonts/` — viable fallback if bundle size audit demands subsetting. Bunny Fonts — rejected (swaps one third party for another, keeps transfer).
