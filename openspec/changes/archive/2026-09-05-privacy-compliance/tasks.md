@@ -1,6 +1,6 @@
 ## 1. Legal and Ops Prep
 
-- [ ] 1.1 Sign Umami Cloud DPA and set EU region, record region plus retention value and verify dashboard shows EU region and retention number
+- [x] 1.1 Sign Umami Cloud DPA and set EU region, record region plus retention value and verify dashboard shows EU region and retention number
 - [x] 1.2 Decide owner domicile text for LFPDPPP Art.15 (full address vs city plus email) and verify chosen text appears verbatim in both EN and ES drafts
 
 ## 2. Font Self-Host
